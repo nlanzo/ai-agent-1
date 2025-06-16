@@ -1,6 +1,5 @@
 # get_files_info.py
 import os
-from pathlib import Path
 from google.genai import types
 
 
