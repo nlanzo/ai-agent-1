@@ -14,7 +14,13 @@ def main():
     verbose = "--verbose" in sys.argv
     api_key = os.environ.get("GEMINI_API_KEY")
     client = genai.Client(api_key=api_key)
-    user_prompt = sys.argv[1]
+
+    args = []
+    for arg in sys.argv[1:]:
+        if not arg.startswith("--"):
+            args.append(arg)
+            
+    user_prompt = " ".join(args)
 
     if verbose:
             print(f"User prompt: {user_prompt}")
